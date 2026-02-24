@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f8f9fa;
+}
+
+/* Navbar */
+.navbar-custom {
+  background: white;
+  padding: 15px 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+/* Hero section */
+.hero {
+  background: linear-gradient(135deg, #ff4d4d, #ff6b6b);
+  color: white;
+  padding: 50px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  font-weight: 700;
+}
+
+.hero p {
+  opacity: 0.9;
+}
+
+/* Food cards */
+.food-card {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.food-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* Status badge */
+.status-badge {
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+/* Buttons */
+.btn-main {
+  background: #ff4d4d;
+  border: none;
+}
+
+.btn-main:hover {
+  background: #ff2e2e;
+}

@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Background with food image */
+.login-wrapper {
+  height: 100vh;
+ background:
+  linear-gradient(rgba(252,128,25,0.75), rgba(255,111,0,0.75)),
+  url("/foodbg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glass card */
+.login-card {
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.9);
+  padding: 50px 40px;
+  width: 380px;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+/* Brand */
+.brand {
+  color: #fc8019;
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+
+/* Tagline improved */
+.tagline {
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+/* Login title */
+.login-card h2 {
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.login-card input {
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #f7f7f7;
+}
+
+/* Button */
+.login-card button {
+  width: 100%;
+  padding: 14px;
+  background: #fc8019;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-card button:hover {
+  background: #e86e10;
+}
+
+.register-text {
+  margin-top: 15px;
+}

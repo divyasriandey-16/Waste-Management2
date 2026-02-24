@@ -10,6 +10,9 @@ const authRoutes = require("./routes/auth");
 const foodRoutes = require("./routes/food");
 const chatRoutes = require("./routes/Chat");
 
+// ⭐ IMPORTANT — IMPORT CHAT MODEL
+const Chat = require("./models/Chat");
+
 const app = express();
 
 app.use(cors());
@@ -22,10 +25,8 @@ app.use("/api", chatRoutes);
 
 // ================= SOCKET.IO SETUP =================
 
-// Create HTTP server
 const server = http.createServer(app);
 
-// Create socket server
 const io = new Server(server, {
   cors: {
     origin: "http://localhost:3000",
@@ -35,25 +36,36 @@ const io = new Server(server, {
 // Make io accessible in routes
 app.set("io", io);
 
-// Socket connection
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
 
-  // JOIN CHAT ROOM
+  // JOIN ROOM
   socket.on("joinRoom", (roomId) => {
     socket.join(roomId);
   });
 
   // SEND MESSAGE
-  socket.on("sendMessage", (data) => {
-    io.to(data.roomId).emit("receiveMessage", data);
+  socket.on("sendMessage", async (data) => {
+    try {
+      // ⭐ SAVE MESSAGE IN DB
+      const newMsg = await Chat.create({
+        roomId: data.roomId,
+        sender: data.sender,
+        message: data.message,
+      });
+
+      // ⭐ SEND ONLY TO THAT ROOM
+      io.to(data.roomId).emit("receiveMessage", newMsg);
+
+    } catch (err) {
+      console.log("Chat save error:", err);
+    }
   });
 
   socket.on("disconnect", () => {
     console.log("User disconnected");
   });
 });
-
 
 // ================= DATABASE =================
 
@@ -62,14 +74,12 @@ mongoose
   .then(() => {
     console.log("MongoDB connected");
 
-    // IMPORTANT: use server.listen instead of app.listen
     server.listen(5000, () => {
       console.log("Server running on port 5000");
     });
   })
   .catch((err) => console.log("MongoDB error:", err));
 
-// TEST ROUTE
 app.get("/", (req, res) => {
   res.send("Backend is working");
 });

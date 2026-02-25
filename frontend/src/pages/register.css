@@ -4,51 +4,48 @@ body {
 }
 
 /* background */
-.login-wrapper {
+.register-wrapper {
   height: 100vh;
   background-size: cover;
   background-position: center;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* THIS MAKES IMAGE TRANSPARENT */
-.bg-overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.6); /* transparency */
-}
-
-/* login card */
-.login-card {
-  position: relative;
-  background: white;
+/* card */
+.register-card {
+  background: rgba(255,255,255,0.95);
   padding: 50px 40px;
-  width: 380px;
-  border-radius: 16px;
+  width: 400px;
+  border-radius: 18px;
   box-shadow: 0 20px 50px rgba(0,0,0,0.3);
   text-align: center;
 }
 
+/* logo */
+.logo {
+  width: 120px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+/* brand */
 .brand {
   color: #ff6b00;
   font-size: 34px;
+  margin-bottom: 5px;
 }
 
 .tagline {
-  margin-bottom: 25px;
-  color: #444;
-}
-
-.tagline span {
   color: #ff6b00;
   font-weight: bold;
+  margin-bottom: 25px;
 }
 
-.login-card input {
+/* inputs */
+.register-card input,
+.register-card select {
   width: 100%;
   padding: 14px;
   margin: 12px 0;
@@ -56,23 +53,39 @@ body {
   border: 1px solid #ccc;
 }
 
-.login-card button {
+/* button */
+.register-card button {
   width: 100%;
   padding: 14px;
   background: #ff6b00;
   color: white;
   border: none;
   border-radius: 8px;
+  font-size: 16px;
   cursor: pointer;
 }
-.logo {
-  width: 200px;   /* increase this value */
-  display: block;
-  margin: 0 auto 25px auto;
+
+.register-card button:hover {
+  background: #e65c00;
 }
-.error-msg {
+
+/* messages */
+.error-box {
+  background: #ffd6d6;
   color: red;
+  padding: 10px;
+  border-radius: 8px;
   margin-bottom: 10px;
-  font-size: 14px;
-  font-weight: 500;
+}
+
+.success-box {
+  background: #d4f5d4;
+  color: green;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.bottom-text {
+  margin-top: 15px;
 }
